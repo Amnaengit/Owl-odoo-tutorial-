@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="owl.OdooServices" owl="1">
+        <div t-attf-class="vh-100 {{state.dark_theme == 'true' ? 'bg-dark' :''}}">
+        <Layout display="display">
+                    <div class="row">
+                        <div class="col m-3">
+                            <button class="btn btn-primary" t-on-click="showNotification">Notification</button>
+                            <button class="btn btn-primary ms-2" t-on-click="showDialog">Dialog Service</button>
+                            <button class="btn btn-primary ms-2" t-on-click="showEffect">Show Effect</button>
+                            <button class="btn btn-primary ms-2" t-on-click="setCookiesService">Cookies Service</button>
+                            <button class="btn btn-primary ms-2" t-on-click="getHttpService">Get Http Service</button>
+
+                            <button class="btn btn-primary ms-2" t-on-click="postHttpService">post Http Service</button>
+                            <button class="btn btn-primary ms-2" t-on-click="getRpcService">RPC Http Service</button>
+                            <button class="btn btn-primary ms-2" t-on-click="getOrmService">ORM Http Service</button>
+                            <button class="btn btn-primary ms-2" t-on-click="getActionService">Action Http Service</button>
+
+
+
+     </div>
+                        <div class="row">
+                            <div class="col m-3"><button t-attf-class="btn {{ state.bg_success == '1' ? 'btn-success' : 'btn-primary' }}" t-on-click="getRouterService">Router Service</button>
+                                <button class="btn btn-primary ms-2" t-on-click="getUserService">User Service</button>
+                                <button class="btn btn-primary ms-2" t-on-click="getCompanyService">company Service</button>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <table class="table mx-4">
+                                    <tr t-foreach="state.get_http_data" t-as="data" t-key="data.id" t-if="state.get_http_data">
+                                        <td><span t-esc="data.brand"/></td>
+                                        <td><span t-esc="data.description"/></td>
+
+                                    </tr>
+                                </table>
+
+                                <table class="table mx-4" t-if="state.post_http_data">
+                                    <tr>
+                                        <td><span t-esc="state.post_http_data.id"/></td>
+                                        <td><span t-esc="state.post_http_data.title"/></td>
+
+                                    </tr>
+                                </table>
+                                <table class="table mx-4" t-if="state.rpt_data">
+                                    <tr  t-foreach="state.rpc_data" t-as="data" t-key='data.id'>
+                                        <td><span t-esc="data.name"/></td>
+                                        <td><span t-esc="data.email"/></td>
+
+                                    </tr>
+                                </table>
+                                <table class="table mx-4">
+                                    <tr t-foreach="state.orm_data" t-as="data" t-key="data.id" t-if="state.orm_data">
+                                        <td><span t-esc="data.name"/></td>
+                                        <td><span t-esc="data.email"/></td>
+
+                                    </tr>
+                                </table>
+                                <div class="p-3" t-if="state.user_data">
+                                <div class="h1 text-break" t-esc="state.user_data"/>
+                            </div>
+
+                                                    <div class="p-3" t-if="state.company_data">
+                                <div class="h1 text-break" t-esc="state.company_data"/>
+                            </div>
+
+
+
+                            </div>
+                        </div>
+        </div>
+        </Layout>
+        </div>    </t>
+</templates>
