@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+
+
+        <record id="action_odoo_owl_external_libraries" model="ir.actions.client">
+            <field name="name">Owl External Libraries</field>
+            <field name="tag">owl.ExternalLibraries</field>
+        </record>
+        <menuitem id="menu_owl_external_libraries" name="Owl External Libraries"
+                  parent="menu_owl_tutorial"
+                  action="action_odoo_owl_external_libraries"
+                  sequence="30"/>
+    </data>
+
+</odoo>
